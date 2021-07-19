@@ -10,7 +10,7 @@ pipeline {
             steps {
 		    sh 'echo "Hello World with AWS creds"'
 		    withAWS(profile:'default') {
-    			s3Upload(file:'index.html', bucket:'koli-test-bucket', path:'index.html')
+    			s3Upload(file:'index.html', bucket:'s3-us-east-2.amazonaws.com/koli-test-bucket', path:'index.html')
 		    }
             }
         }
