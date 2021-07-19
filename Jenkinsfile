@@ -9,6 +9,9 @@ pipeline {
         stage('Upload to AWS') {
             steps {
 		    sh 'echo "Hello World with AWS creds"'
+		    withAWS(profile:'default') {
+    			s3Upload(file:'index.html', bucket:'koli-test-bucket', path:'index.html')
+		    }
             }
         }
     }
